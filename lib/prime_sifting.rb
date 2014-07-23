@@ -1,12 +1,9 @@
 def prime_sifting(number)
-  numbers = (2..number).to_a
-  primes = [1]
-  (2..number).each do |prime|
-    primes.push(numbers.shift)
-    numbers.delete_if {|x| x % prime == 0}
+  numbers = (1..number).to_a
+  numbers.each do |sift|
+    numbers.delete_if {|x| x % sift == 0 && x != sift && sift != 1 }
   end
-  primes.delete(nil)
-  primes
+  numbers
 end
 
 puts prime_sifting(8)
